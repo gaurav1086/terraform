@@ -113,7 +113,7 @@ func (c *PackageCommand) Run(args []string) int {
 		Source: getproviders.NewMemoizeSource(getproviders.NewRegistrySource(services)),
 	})
 
-	// if the local .plugins directory exists, include it as a potential source
+	// if the local "./plugins" directory exists, include it as a potential source
 	if _, err := os.Stat(pluginDir); err == nil {
 		sources = append(sources, getproviders.MultiSourceSelector{
 			Source: getproviders.NewFilesystemMirrorSource(pluginDir),
